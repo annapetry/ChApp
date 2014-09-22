@@ -25,8 +25,8 @@
   };
 
   ChatUi.prototype.sendMessage = function () {
-    var msg = this.getMessage();
-    this.chat.sendMessage(msg);
+    var input = this.getMessage();
+    this.chat.processCommand(input);
   };
 
   ChatUi.prototype.addMessage = function (message) {
