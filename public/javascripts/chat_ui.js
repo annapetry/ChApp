@@ -35,7 +35,8 @@ $(function () {
      $rootEl: $('body')
    })
   socket.on('message', function (data) {
-    ui.addMessage(data.text);
+    var message = '< ' + data.nick + ' > ' + data.text;
+    ui.addMessage(message);
   });
   
   $('form').on('submit', function (event) {
