@@ -1,90 +1,68 @@
-html, body, .container, .row {
-  height: 100%;
+* {
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue','Helvetica',arial,sans-serif;;
 }
-
-.full-height {
+html, body {
   height: 100%;
+  position: relative;
+  background-color: #e9e9e9;
 }
-
 body {
   padding-bottom: 60px;
 }
-
-.msgs {
-  border-right: 2px solid black;
-  padding-top: 30px;
-}
-
-.footer {
-  border-top: 2px solid black;
+.brand {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #f5f5f5;
-}
+  left: 33.5%;
+  top: 3px;
+  z-index: 2;
+  color: #fff;
+  font-size: 4.5em;
 
-button {
-  display: none !important;
+  -webkit-text-stroke: 1px #666;
+   color: white;
+/*   text-shadow:
+       3px 3px 0 #666,
+     -1px -1px 0 #666,
+      1px -1px 0 #666,
+      -1px 1px 0 #666,
+       1px 1px 0 #666;*/
 }
-
+.container {
+  height: 80%;
+  width: 60%;
+  padding: 3%;
+  background-color: #edb5a4;
+  opacity: 0.85;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px #bfbfbf;
+}
 .form-control{
+  position: absolute;
+  width: 70.5%;
+  bottom: 3.5%;
 }
-
-ul {
-  list-style: none;
-  padding-left: 0;
+.bot {
+  color: #A47741;
 }
-
-/*body {
-  width: 100%;
-}
-*/
-/*#form-div {
- bottom: 0;
-/* padding-bottom: 5px; */
-/* margin-bottom: 2px;
- position: fixed;
- height: 40px;
- width: 100%;
- left: 0;
- right: 0;
-}*/
-*/
-/*#form-div button {
-  float: right;
-  height: 35px;
-  width: 90px;
-}*/
-
-/*.msgs {
-  width: 650px;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
 li {
-  margin-top: 5px;
+  color: #666;
 }
-*/
-/*.rooms {
-  float: right;
-  margin-right: 50px;
-  min-width: 150px;
-  border: 2px black solid;
-  border-radius: 3px;
-  padding: 10px;
-}*/
-
-/*input[type="text"] {
-  height: 35px;
-  font-size: 16px;
-  width: 90%;
-}*/
-
-/** {
-  box-sizing: border-box;
-}*/
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+.msgs {
+  background-color: #e9e9e9;
+  height: 430px;
+  margin-left: 15px;
+  border-radius: 6px;
+  overflow-y: auto;
+  padding-top: 10px;
+}
+.rooms {
+  text-align: right;
+  width: 20%;
+}

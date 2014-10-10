@@ -13,13 +13,13 @@
     var that = this;
     
     Object.keys(roomList).forEach(function (room) {
-      var $header = $('<h3></h3>');
+      var $header = $('<h3 class="' + room + '"></h3>');
       $header.text(room);
       that.$rootEl.find('.rooms').append($header);
       
       var $uList = $('<ul></ul>');
       roomList[room].forEach(function (user) {
-        var $li = $('<li></li>');
+        var $li = $('<li class="' + user + '"></li>');
         $li.text(user);
         $uList.append($li);
       });
@@ -39,11 +39,13 @@
     this.chat.processCommand(input);
   };
 
-  ChatUi.prototype.addMessage = function (message) {
+  ChatUi.prototype.addMessage = function (message, addClass) {
     var $ul = this.$rootEl.find('#msgs');
-    var $li = $('<li></li>');
+    var $li = $('<li class="' + addClass + '"></li>');
     $li.text(message);
     $ul.append($li);
+    // Pushes scrol bar to bottom to show most recent messages
+    $(".msgs").scrollTop($(".msgs").children().height());
   };
 })();
 
@@ -60,12 +62,12 @@ $(function () {
   });
    
   socket.on('message', function (data) {
-    var message = '< ' + data.nick + ' > ' + data.text;
-    ui.addMessage(message);
+    var message = data.nick + ': ' + data.text;
+    ui.addMessage(message, data.addClass);
   });
   
   $('form').on('submit', function (event) {
     event.preventDefault();
     ui.sendMessage();
-  })
+  });
 });
