@@ -8,13 +8,23 @@
     this.$rootEl = options.$rootEl;
   };
   
-  ChatUi.prototype.displayUsers = function (usersHash) {
-    this.$rootEl.find('#users').empty();
+  ChatUi.prototype.roomList = function (roomList) {
+    this.$rootEl.find('.rooms').empty();
     var that = this;
-    Object.keys(usersHash).forEach(function (key) {
-      var $li = $('<li></li>');
-      $li.text(usersHash[key]);
-      that.$rootEl.find('#users').prepend($li);
+    
+    Object.keys(roomList).forEach(function (room) {
+      var $header = $('<h3></h3>');
+      $header.text(room);
+      that.$rootEl.find('.rooms').append($header);
+      
+      var $uList = $('<ul></ul>');
+      roomList[room].forEach(function (user) {
+        var $li = $('<li></li>');
+        $li.text(user);
+        $uList.append($li);
+      });
+      
+      that.$rootEl.find('.rooms').append($uList);
     });
   };
 
@@ -33,20 +43,20 @@
     var $ul = this.$rootEl.find('#msgs');
     var $li = $('<li></li>');
     $li.text(message);
-    $ul.prepend($li);
+    $ul.append($li);
   };
 })();
 
 $(function () {
-   var socket = io('http://localhost');
+   var socket = io();
    var chat = new App.Chat(socket);
    var ui = new App.ChatUi({
      chat: chat,
      $rootEl: $('body')
    });
-   
-  socket.on('updateUsers', function (data) {
-    ui.displayUsers(data.users);
+  
+  socket.on('roomList', function (data) {
+    ui.roomList(data.roomList);
   });
    
   socket.on('message', function (data) {

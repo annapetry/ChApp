@@ -5,10 +5,14 @@
   
   var Chat = App.Chat = function (socket) {
     this.socket = socket;
+    this.room = 'lobby';
   };
 
   Chat.prototype.sendMessage = function (message) {
-    this.socket.emit('message', { text: message });
+    this.socket.emit('message', { 
+      text: message,
+      room: this.room
+    });
   };
   
   Chat.prototype.processCommand = function (input) {
@@ -18,12 +22,13 @@
       
       if (command === '/nick') {
         this.socket.emit('nicknameChangeRequest', { nick: words[1] });
-      } else {
+      } else if (command === '/join') {
+        this.socket.emit('roomChangeRequest', { newRoom: words[1] });
+      } else { 
         this.socket.emit('message', {
           text: 'ERROR: Unrecognized command.'
         })
       }
-      
     } else {
       this.sendMessage(input);
     }
