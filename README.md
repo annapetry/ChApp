@@ -1,7 +1,11 @@
-##ChApp
+# ChApp
 
-####A fun little Node.js chat app
+#### A Chat App, using Node.js
 
--Uses Socket.IO to add cross-browser support to websockets.
--Uses node-static to serve static files.
--Allows guests to change their names and switch rooms.
+##### Key Features:
+-  Uses Socket.IO to implement chatroom functionality
+-  Uses node-static to serve static files
+-  Allows users to change their nicknames and switch rooms
+
+##### Under the Hood:
+Node.js, Bootstrap, HTML5, CSS
