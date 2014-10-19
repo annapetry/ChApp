@@ -9,3 +9,6 @@
 
 ##### Under the Hood:
 Node.js, Bootstrap, HTML5, CSS
+
+##### TODO:
+Add instructions so Users know *how* to change their nicknames and rooms
