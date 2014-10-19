@@ -5,6 +5,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/chat_ui.js"></script>
     <script src="/javascripts/chat.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
     <script>
@@ -19,29 +20,38 @@
     </script>
   </head>
   <body>
-    <h1 class="brand">ChApp Room</h1>
     <div class="container container-fluid">
-      <div class="row">
+      <div class="main">
+        <div class="row header">
+          <h1 class="brand">ChApp Room</h1>
+       </div>
+        <div class="row">
 
-        <div class="msgs col-md-9">
-          <ul id="msgs"></ul>
-        </div>
+          <div class="msgs col-md-9">
+            <ul id="msgs"></ul>
+          </div>
 
-        <div class="rooms col-md-2"></div>
+          <div class="rooms col-md-2"></div>
 
-      </div> <!-- Close of row -->
+        </div> <!-- Close of row -->
 
-      <div id="form-div">
-        <form>
-          <div class="form-group">
-            <input class="form-control"
-                   type="text"
-                   id="msg"
-                   placeholder="Enter your message here!">
-          </div> <!-- Close of form-group -->
-        </form>
-      </div> <!-- Close of form-div -->
-
+        <div id="form-div">
+          <form>
+            <div class="form-group">
+              <input class="form-control"
+                     type="text"
+                     id="msg"
+                     placeholder="Enter your message here!">
+            </div> <!-- Close of form-group -->
+          </form>
+          <div class="how-to">
+            <i class="fa fa-gears"></i>
+            <p id="tips">Tips:</p>
+            <p class='no-style'>Enter ' /nick <em>Nickname</em> ' to change your display name</p>
+            <p class='no-style'>Enter ' /join <em>RoomName</em> ' to change your room</p>
+          </div>
+        </div> <!-- Close of form-div -->
+      </div> <!-- Close of main -->
     </div> <!-- Close of container -->
 
   </body>
