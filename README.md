@@ -2,6 +2,8 @@
 
 #### A Chat App, using Node.js
 
+##### See it live [HERE](http://chapp-room.herokuapp.com)
+
 ##### Key Features:
 -  Uses Socket.IO to implement chatroom functionality
 -  Uses node-static to serve static files
